@@ -66,7 +66,8 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass', 'autoprefixer']
+        tasks: ['compass:dev']
+       // tasks: ['compass', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -76,6 +77,7 @@ module.exports = function (grunt) {
           '<%= config.app %>/scripts/{,*/}*.js',
           '<%= config.app %>/{,*/}*.html',
           '<%= config.app %>/styles/{,*/}*.css',
+          '<%= config.app %>/styles/partials/{,*/}*.scss',
           '<%= config.app %>/images/{,*/}*',
           '.tmp/styles/{,*/}*.css'
         ]

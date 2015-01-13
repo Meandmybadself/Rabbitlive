@@ -1,0 +1,58 @@
+html,body {
+	background-color:$lightGray;
+}
+
+.heading {
+	background-color:$darkBlue;
+	height:100%;
+	p.explanation {
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight:300;
+		color:$lightDarkBlue;
+	}
+	.button {
+		font-family:'Monocle-Bold', sans-serif;
+		text-align:center;
+		border:3px solid $turquoise;
+		color:$turquoise;
+	}
+}
+.main {
+	h1 {
+		font-family:'Monocle-Bold', sans-serif;
+		color:$lightDarkBlue;
+		font-size:3em;
+	}
+	.properties {
+		li {
+			dl {
+				dt {
+					font-family:'Monocle-Bold', sans-serif;
+					color:$darkBlue;
+				}
+				dd {
+					font-family: 'Source Sans Pro', sans-serif;
+					font-weight:300;
+					color:$lightDarkBlue;
+					line-height:1.5em;
+				}
+			}
+		}
+	}
+	.contact {
+		.line-piece {
+			width:35px;
+			height:4px;
+			background-color:$darkBlue;
+		}
+		font-family: 'Source Sans Pro', sans-serif;
+		color:$lightDarkBlue;
+		h2 {
+			font-weight:600;
+		}
+		a.email {
+			color:$turquoise;
+			text-decoration:none;
+		}
+	}
+}

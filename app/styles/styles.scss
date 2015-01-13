@@ -1,2 +1,10 @@
-@import "compass/reset"
+@import "compass/reset";
 
+/** Colors **/
+$lightGray: #D9DAD7;
+$darkBlue: #171D26;
+$lightDarkBlue: #3F6375;
+$turquoise: #34CCB0;
+
+@import "partials/fonts";
+@import "partials/page";
