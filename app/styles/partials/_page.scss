@@ -11,9 +11,18 @@ html,body {
 .content {
 	height:100%;
 }
-.heading {
 
-	height:75%;
+/**
+ _                     _ _
+| |                   | (_)
+| |__  _____ _____  __| |_ ____   ____
+|  _ \| ___ (____ |/ _  | |  _ \ / _  |
+| | | | ____/ ___ ( (_| | | | | ( (_| |
+|_| |_|_____)_____|\____|_|_| |_|\___ |
+                                (_____|
+**/
+.heading {
+	height:70%;
 
 	@include sm {
 		height:100%;
@@ -35,11 +44,7 @@ html,body {
 
 	.logo-text {
 		position:relative;
-		height:25%;
-
-		@include lg {
-			height:30%;
-		}
+		height:30%;
 
 		.logo {
 			position:relative;
@@ -62,16 +67,18 @@ html,body {
 				right:5%;
 
 				li {
+					height:20px;
 					padding:0;
 					span {
+						height:20px;
 						padding:2px;
 						font-family:'Monocle-Regular', sans-serif;
 						background-color:$lightDarkBlue;
 						color:$darkBlue;
 						text-transform:uppercase;
 
-						font-size:.8em;
-						@include md {
+						font-size:.7em;
+						@include lg {
 							font-size:1em;
 						}
 
@@ -79,11 +86,12 @@ html,body {
 				}
 			}
 		}
-		
-	}
+	} //end .logo-text
 
 	.explain {
+		margin-top:10px;
 		height:40%;
+		position:relative;
 		p.explain-line-1 {
 			font-weight:600;
 			font-size:1.1em;
@@ -92,31 +100,49 @@ html,body {
 			}
 		}
 		p.explain-line-2 {
-			font-size:.9em;
+			font-size:$copySize;
 		}
 	}
 
 
-
-	.button {
-		font-family:'Monocle-Bold', sans-serif;
-		text-align:center;
-		border:3px solid $turquoise;
-		color:$turquoise;
-		padding:10px 0;
+	.method-button {
+		height:30%;
+		.button {
+			font-family:'Monocle-Bold', sans-serif;
+			text-align:center;
+			border:3px solid $turquoise;
+			color:$turquoise;
+			padding:10px 0;
+		}
 	}
+
 }
+
+/**
+             _
+            (_)
+ ____  _____ _ ____
+|    \(____ | |  _ \
+| | | / ___ | | | | |
+|_|_|_\_____|_|_| |_|
+
+**/
 .main {
-	height:100%;
-	overflow:hidden;
+	min-height:100%;
+
+	@include md {
+		height:100%;
+		overflow:hidden;
+	}
+
 	.main-content {
 		height:100%;
 	}
-	
+
 	h1 {
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
-		
+
 		letter-spacing:.05em;
 		line-height:1.6em;
 		height:40%;
@@ -129,14 +155,14 @@ html,body {
 
 		font-size:1.5em;
 		@include md {
-			font-size:2em;	
+			font-size:2em;
 		}
 		@include lg {
 			font-size:2.5em;
 		}
 
 	}
-	
+
 	.properties {
 		height:40%;
 		li {
@@ -186,9 +212,8 @@ html,body {
 				background-color:$darkBlue;
 			}
 		}
-
-		
 	}
+
 	.meet-button {
 		.meet-logo {
 			height:80%;
@@ -220,5 +245,44 @@ html,body {
 				margin-left: -10px;
 			}
 		}
+	} //end .meet-button
+
+	.rabbits {
+		background-color:$turquoise;
+		h2 {
+			color:$lightGray;
+			text-transform:uppercase;
+			font-family:'Monocle-Bold', sans-serif;
+		}
+
+		h3 {
+			color:$darkBlue;
+			text-transform:uppercase;
+			font-family:'Monocle-Bold', sans-serif;
+		}
+		.dna {
+			display:none;
+			@include sm {
+				display:block;
+			}
+			.dna-list {
+				text-transform:uppercase;
+				font-family:'Monocle-Bold', sans-serif;
+				color:$lightDarkBlue;
+			}
+		}
+
+
+
+		.employee {
+
+			p {
+				font-family: 'Source Sans Pro', sans-serif;
+				color:$darkBlue;
+				font-size:.9em;
+			}
+		}
 	}
+
+
 }
