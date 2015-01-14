@@ -1,0 +1,23 @@
+/** Stolen from http://davidwalsh.name/write-media-queries-sass **/
+
+$sm:768px;
+$md:992px;
+$lg:1200px;
+
+@mixin sm {
+	@media (min-width: #{$sm}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$md}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: #{$lg}) {
+		@content;
+	}
+}

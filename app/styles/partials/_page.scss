@@ -12,27 +12,74 @@ html,body {
 	height:100%;
 }
 .heading {
-	height:100%;
+
+	height:75%;
+
+	@include sm {
+		height:100%;
+	}
+
 	background-color:$darkBlue;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight:300;
 	color:$lightDarkBlue;
-	line-height:1.5em;	
+
+	line-height:1.2em;
+	@include md {
+		line-height:1.5em;
+	}
 
 	.heading-content {
 		height:100%;
-		border:1px solid #FFFF00;
 	}
 
-
 	.logo-text {
-		border:1px solid #FF0000;
-		height:40%;
-		ul {
-			li {
-				text-transform:uppercase;
+		position:relative;
+		height:25%;
+
+		@include lg {
+			height:30%;
+		}
+
+		.logo {
+			position:relative;
+			margin:10% auto 0 auto;
+			min-height:50%;
+			img {
+				margin:0 auto;
+				width:75%;
+				position:absolute;
+				margin-left:auto;
+				margin-right:auto;
+				left:0;
+				right:0;
+				z-index:1;
+			}
+			ul {
+				position:absolute;
+				z-index:2;
+				bottom:0;
+				right:5%;
+
+				li {
+					padding:0;
+					span {
+						padding:2px;
+						font-family:'Monocle-Regular', sans-serif;
+						background-color:$lightDarkBlue;
+						color:$darkBlue;
+						text-transform:uppercase;
+
+						font-size:.8em;
+						@include md {
+							font-size:1em;
+						}
+
+					}
+				}
 			}
 		}
+		
 	}
 
 	.explain {
@@ -61,6 +108,7 @@ html,body {
 }
 .main {
 	height:100%;
+	overflow:hidden;
 	.main-content {
 		height:100%;
 	}
@@ -68,16 +116,31 @@ html,body {
 	h1 {
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
-		font-size:2.5em;
+		
 		letter-spacing:.05em;
 		line-height:1.6em;
 		height:40%;
-		padding-top:5%;
+
+
+		padding-top:10%;
+		@include lg {
+			padding-top:5%;
+		}
+
+		font-size:1.5em;
+		@include md {
+			font-size:2em;	
+		}
+		@include lg {
+			font-size:2.5em;
+		}
+
 	}
 	
 	.properties {
 		height:40%;
 		li {
+			padding:0 15px 0 0;
 			dl {
 				dt {
 					font-family:'Monocle-Bold', sans-serif;
@@ -88,8 +151,11 @@ html,body {
 					font-family: 'Source Sans Pro', sans-serif;
 					font-weight:300;
 					color:$lightDarkBlue;
-					line-height:1.5em;
 					font-size:.8em;
+					line-height:1.3em;
+					@include lg {
+						line-height:1.5em;
+					}
 				}
 			}
 		}
