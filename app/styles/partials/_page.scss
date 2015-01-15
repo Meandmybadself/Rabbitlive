@@ -69,6 +69,7 @@ html,body {
 				li {
 					height:20px;
 					padding:0;
+					margin-bottom:3px;
 					span {
 						height:20px;
 						padding:2px;
@@ -112,7 +113,7 @@ html,body {
 			text-align:center;
 			border:3px solid $turquoise;
 			color:$turquoise;
-			padding:10px 0;
+			padding:14px 0 9px 0;
 			cursor:pointer;
 			transition:background .3s;
 			&:hover {
@@ -134,7 +135,7 @@ html,body {
 
 **/
 .main {
-	min-height:100%;
+	height:100%;
 
 	@include md {
 		height:100%;
@@ -143,16 +144,20 @@ html,body {
 
 	.main-content {
 		height:100%;
+		//margin-top:-600px;
 	}
 
 	h1 {
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 
-
-
 		line-height:1.6em;
-		height:40%;
+
+		height:140px;
+
+		@include sm {
+			height:40%;
+		}
 
 		margin-bottom:20px;
 
@@ -172,22 +177,39 @@ html,body {
 	}
 
 	.properties {
-		height:40%;
+		height:550px;
+		@include sm {
+			height:40%;
+		}
 		li {
-			padding:0 15px 0 0;
+			height:175px;
 			margin-bottom:20px;
+			padding:0;
 			dl {
 				dt {
 					font-family:'Monocle-Bold', sans-serif;
 					color:$darkBlue;
+					z-index:1;
+					position:absolute;
 				}
-				dd {
+				dd.img {
+					width:100px;
+					z-index:0;
+					position:absolute;
+					left:-25px;
+					top:-30px;
+				}
+				dd.details {
+					z-index:1;
+					position:absolute;
+					top:20px;
 					margin-top:10px;
 					font-family: 'Source Sans Pro', sans-serif;
 					font-weight:300;
 					color:$lightDarkBlue;
 					font-size:.8em;
 					line-height:1.3em;
+					padding-right:20px;
 					@include lg {
 						line-height:1.5em;
 					}
@@ -227,6 +249,7 @@ html,body {
 	} //end .contact
 
 	.meet-button {
+		cursor:pointer;
 		margin-top:20px;
 		@include sm {
 			margin-top:0;
@@ -269,12 +292,29 @@ html,body {
 	.rabbits {
 		background-color:$turquoise;
 		padding-bottom:50px;
-		h2 {
+		min-height:600px;
+
+		.team-heading {
+			width:130px;
+
 			margin-top:20px;
+
+			@include sm {
+				margin:150px auto 35px auto;
+			}
+
 			color:$lightGray;
 			text-transform:uppercase;
 			font-family:'Monocle-Bold', sans-serif;
+			font-size:1.5em;
+			.line-piece {
+				width:25px;
+				height:3px;
+				background-color:$lightGray;
+				margin-top:10px;
+			}
 		}
+
 
 		h3 {
 			color:$darkBlue;
@@ -283,14 +323,17 @@ html,body {
 			margin-bottom:10px;
 		}
 		.dna {
-			display:none;
 			@include sm {
 				display:block;
 			}
 			.dna-list {
 				text-transform:uppercase;
-				font-family:'Monocle-Bold', sans-serif;
+				font-family:'Monocle-Light', sans-serif;
 				color:$lightDarkBlue;
+				font-size:.8em;
+				li {
+					margin-bottom:5px;
+				}
 			}
 		}
 
@@ -299,10 +342,14 @@ html,body {
 		.employee {
 			margin-top:15px;
 			margin-bottom:15px;
+			@include sm {
+				margin:0;
+			}
 			p {
 				font-family: 'Source Sans Pro', sans-serif;
 				color:$darkBlue;
-				font-size:.9em;
+				font-size:$copySize;
+				line-height:1.4em;
 			}
 		}
 	}
