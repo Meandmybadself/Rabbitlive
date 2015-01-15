@@ -22,7 +22,7 @@ html,body {
                                 (_____|
 **/
 .heading {
-	height:70%;
+	height:500px;
 
 	@include sm {
 		height:100%;
@@ -44,7 +44,7 @@ html,body {
 
 	.logo-text {
 		position:relative;
-		height:30%;
+		height:35%;
 
 		.logo {
 			position:relative;
@@ -90,7 +90,7 @@ html,body {
 
 	.explain {
 		margin-top:10px;
-		height:40%;
+		height:35%;
 		position:relative;
 		p.explain-line-1 {
 			font-weight:600;
@@ -106,13 +106,19 @@ html,body {
 
 
 	.method-button {
-		height:30%;
+		height:20%;
 		.button {
 			font-family:'Monocle-Bold', sans-serif;
 			text-align:center;
 			border:3px solid $turquoise;
 			color:$turquoise;
 			padding:10px 0;
+			cursor:pointer;
+			transition:background .3s;
+			&:hover {
+				background:$turquoise;
+				color:$darkBlue;
+			}
 		}
 	}
 
@@ -143,17 +149,19 @@ html,body {
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 
-		letter-spacing:.05em;
+
+
 		line-height:1.6em;
 		height:40%;
 
+		margin-bottom:20px;
 
 		padding-top:10%;
 		@include lg {
-			padding-top:5%;
+			padding-top:15%;
 		}
 
-		font-size:1.5em;
+		font-size:1.3em;
 		@include md {
 			font-size:2em;
 		}
@@ -167,6 +175,7 @@ html,body {
 		height:40%;
 		li {
 			padding:0 15px 0 0;
+			margin-bottom:20px;
 			dl {
 				dt {
 					font-family:'Monocle-Bold', sans-serif;
@@ -187,39 +196,49 @@ html,body {
 		}
 	} //end properties
 
-	.footer {
-		height:25%;
-		border:1px solid #0000FF;
-		font-size:.8em;
-		display:table;
 
-		.contact {
-			display: table-cell;
-			vertical-align: middle;
-			font-family: 'Source Sans Pro', sans-serif;
-			color:$lightDarkBlue;
-			h2 {
-				font-weight:600;
-				font-size:1em;
-			}
-			a.email {
-				color:$turquoise;
-				text-decoration:none;
-			}
-			.line-piece {
+
+
+	.contact {
+		font-family: 'Source Sans Pro', sans-serif;
+		margin-top:20px;
+		font-size:.8em;
+		color:$darkBlue;
+		.line-piece {
+				margin-bottom:20px;
 				width:35px;
 				height:4px;
 				background-color:$darkBlue;
 			}
+
+		h2 {
+			font-weight:600;
+			font-size:1.1em;
 		}
-	}
+
+		a{
+			color:$darkBlue;
+		}
+
+		a.email {
+			color:$turquoise;
+			text-decoration:none;
+		}
+	} //end .contact
 
 	.meet-button {
+		margin-top:20px;
+		@include sm {
+			margin-top:0;
+		}
 		.meet-logo {
 			height:80%;
 			img {
-				margin:0 auto;
-				width:60%;
+				margin:10px auto 20px auto;
+				width:25%;
+				@include sm {
+					width:60%;
+				}
 			}
 		}
 		.meet-text {
@@ -249,7 +268,9 @@ html,body {
 
 	.rabbits {
 		background-color:$turquoise;
+		padding-bottom:50px;
 		h2 {
+			margin-top:20px;
 			color:$lightGray;
 			text-transform:uppercase;
 			font-family:'Monocle-Bold', sans-serif;
@@ -259,6 +280,7 @@ html,body {
 			color:$darkBlue;
 			text-transform:uppercase;
 			font-family:'Monocle-Bold', sans-serif;
+			margin-bottom:10px;
 		}
 		.dna {
 			display:none;
@@ -275,7 +297,8 @@ html,body {
 
 
 		.employee {
-
+			margin-top:15px;
+			margin-bottom:15px;
 			p {
 				font-family: 'Source Sans Pro', sans-serif;
 				color:$darkBlue;
