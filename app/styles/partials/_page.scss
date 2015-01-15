@@ -22,9 +22,13 @@ html,body {
                                 (_____|
 **/
 .heading {
-	height:500px;
+	height:465px;
 
 	@include sm {
+		height:430px;
+	}
+
+	@include md {
 		height:100%;
 	}
 
@@ -44,18 +48,17 @@ html,body {
 
 	.logo-text {
 		position:relative;
-		height:35%;
+		height:180px;
 
 		.logo {
 			position:relative;
-			margin:10% auto 0 auto;
-			min-height:50%;
+			margin:40px auto 0 auto;
+			width:300px;
+			height:140px;
+
 			img {
-				margin:0 auto;
-				width:75%;
+				height:100%;
 				position:absolute;
-				margin-left:auto;
-				margin-right:auto;
 				left:0;
 				right:0;
 				z-index:1;
@@ -63,22 +66,26 @@ html,body {
 			ul {
 				position:absolute;
 				z-index:2;
-				bottom:0;
-				right:5%;
+				bottom:35px;
+				right:0;
 
 				li {
-					height:20px;
+
+					height:15px;
 					padding:0;
 					margin-bottom:3px;
 					span {
-						height:20px;
+						height:10px;
 						padding:2px;
-						font-family:'Monocle-Regular', sans-serif;
+						font-family:'Monocle-Bold', sans-serif;
+						@include sm {
+							font-family:'Monocle-Regular', sans-serif;
+						}
 						background-color:$lightDarkBlue;
 						color:$darkBlue;
 						text-transform:uppercase;
 
-						font-size:.7em;
+						font-size:.75em;
 						@include lg {
 							font-size:1em;
 						}
@@ -90,8 +97,11 @@ html,body {
 	} //end .logo-text
 
 	.explain {
-		margin-top:10px;
-		height:35%;
+		margin-top:20px;
+		height:140px;
+		@include sm {
+			height:80px;
+		}
 		position:relative;
 		p.explain-line-1 {
 			font-weight:600;
@@ -107,7 +117,7 @@ html,body {
 
 
 	.method-button {
-		height:20%;
+		margin-top:30px;
 		.button {
 			font-family:'Monocle-Bold', sans-serif;
 			text-align:center;
@@ -138,13 +148,16 @@ html,body {
 	height:100%;
 
 	@include md {
-		height:100%;
+		//height:100%;
 		overflow:hidden;
 	}
 
 	.main-content {
 		height:100%;
-		//margin-top:-600px;
+		transition:margin .4s ease;
+		&.showingRabbits {
+			margin-top:-600px;
+		}
 	}
 
 	h1 {
