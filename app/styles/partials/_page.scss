@@ -13,8 +13,10 @@ html,body {
 }
 
 $topPer:40%;
+$topPad:40%;
 $midPer:35%;
 $btmPer:25%;
+
 
 /**
  _                     _ _
@@ -37,6 +39,85 @@ $btmPer:25%;
 		height:100%;
 	}
 
+	.page-modal {
+		z-index:3;
+		position:absolute;
+		width:100%;
+		background:$lightDarkBlue;
+		color:$lightBlue;
+		display:table;
+		font-size:.8em;
+
+		.close-btn {
+			cursor:pointer;
+			position:absolute;
+			right:20px;
+			z-index:3;
+			width:35px;
+
+			.facade {
+				position:absolute;
+				width:30px;
+				height:30px;
+			}
+			.front {
+				top:0;
+				left:0;
+				background-color:$turquoise;
+				z-index:2;
+				img {
+					margin-left:22%;
+					margin-top:22%;
+					width:50%;
+					height:50%;
+				}
+			}
+			.back {
+				height:35px;
+				top:0;
+				left:5px;
+				background-color:$darkBlue;
+				z-index:1;
+			}
+		}
+		.modal-container {
+			height:100%;
+			display:table-cell;
+			vertical-align:middle;
+		}
+		&:after {
+			top: 100%;
+			left: 15%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(136, 183, 213, 0);
+			border-top-color: $lightDarkBlue;
+			border-width: 10px;
+			margin-left: -10px;
+		}
+
+		span.white {
+			color:$lightGray;
+			font-weight:600;
+		}
+	}
+
+	.method-modal {
+		height:($topPer + $midPer) * .95;
+		p {
+			margin-bottom:20px;
+		}
+	}
+
+	.live-modal {
+		opacity:0;
+		height:$topPer * .95;
+	}
+
 	background-color:$darkBlue;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight:300;
@@ -56,8 +137,9 @@ $btmPer:25%;
 		height:180px;
 
 		@include md {
-			border:1px solid #FF0000;
+			//border:1px solid #FF0000;
 			height:$topPer;
+			padding-top:$topPad * .4;
 		}
 
 		.logo {
@@ -67,7 +149,7 @@ $btmPer:25%;
 			margin-top:20px;
 
 			@include sm {
-				border: 1px solid #0000FF;
+				//border: 1px solid #0000FF;
 				max-width:60%;
 				margin-left:auto;
 				margin-right:auto;
@@ -77,11 +159,11 @@ $btmPer:25%;
 				max-width:100%;
 				margin-left:0;
 				margin-right:0;
-				border:1px solid #FF0000;
+				//border:1px solid #FF0000;
 			}
 
 			@include lg {
-				border: 1px solid #00FF00;
+				//border: 1px solid #00FF00;
 			}
 
 
@@ -211,7 +293,7 @@ $btmPer:25%;
 	}
 
 	h1 {
-		border:1px solid #FF0000;
+		//border:1px solid #FF0000;
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 
@@ -221,6 +303,9 @@ $btmPer:25%;
 		@include sm {
 			height:240px;
 		}
+		@include md {
+			height:$topPer;
+		}
 
 
 		padding-top:30px;
@@ -228,9 +313,7 @@ $btmPer:25%;
 			padding-top:70px;
 		}
 		@include md {
-			padding-top:100px;
-			height:$topPer;
-			//height:300px;
+			padding-top:0;
 		}
 
 
@@ -245,10 +328,14 @@ $btmPer:25%;
 			font-size:2.5em;
 		}
 
+		p.heading-1 {
+			margin-top:$topPad * .4;
+		}
+
 	}
 
 	.properties {
-		border:1px solid #00FF00;
+		//border:1px solid #00FF00;
 		height:550px;
 
 		@include sm {
@@ -300,7 +387,7 @@ $btmPer:25%;
 
 
 	.contact {
-		border:1px solid #0000FF;
+		//border:1px solid #0000FF;
 		font-family: 'Source Sans Pro', sans-serif;
 		//margin-top:20px;
 		font-size:.8em;
@@ -350,12 +437,12 @@ $btmPer:25%;
 		}
 
 		@include md {
-			border: 1px solid #00FF00;
+			//border: 1px solid #00FF00;
 			height:$btmPer;
 		}
 
 		.meet-logo {
-			border:1px solid #FF0000;
+			//border:1px solid #FF0000;
 			height:90%;
 			svg {
 				//margin:10px auto 20px auto;
@@ -371,7 +458,7 @@ $btmPer:25%;
 			}
 		}
 		.meet-text {
-			border:1px solid #FF00FF;
+			//border:1px solid #FF00FF;
 			height:10%;
 			padding:7px 0;
 			text-align:center;
