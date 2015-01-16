@@ -12,7 +12,9 @@ html,body {
 	height:100%;
 }
 
-
+$topPer:40%;
+$midPer:35%;
+$btmPer:25%;
 
 /**
  _                     _ _
@@ -53,79 +55,57 @@ html,body {
 		position:relative;
 		height:180px;
 
+		@include md {
+			border:1px solid #FF0000;
+			height:$topPer;
+		}
+
 		.logo {
 			position:relative;
-			margin:40px auto 0 auto;
-			max-width:80%;
+			max-width:100%;
 			height:auto;
-			min-height:140px;
+			margin-top:20px;
 
 			@include sm {
 				border: 1px solid #0000FF;
-				//max-width:50%;
+				max-width:60%;
+				margin-left:auto;
+				margin-right:auto;
 			}
 
 			@include md {
-
+				max-width:100%;
+				margin-left:0;
+				margin-right:0;
 				border:1px solid #FF0000;
-				//max-width:50%;
 			}
 
 			@include lg {
 				border: 1px solid #00FF00;
-			//	width:100%;
-			//	min-height:200px;
-			//	border:1px solid #FF0000;
 			}
 
 
 
 			svg {
 				//opacity:0;
-				max-width:90%;
+				max-width:88%;
 				height:auto;
 				height:100%;
 			}
-
-			// img#rabbit-text-logo {
-			// 	height:100%;
-			// 	position:absolute;
-			// 	left:0;
-			// 	right:0;
-			// 	z-index:1;
-			// }
 
 			ul {
 				position:absolute;
 				z-index:2;
 				bottom:30%;
-				left:73%;
-
-				@include md {
-					left:170px;
-					bottom:20px;
-				}
-
-				//right:0;
+				left:64%;
 
 				li {
-					//overflow:hidden;
-					//width:0px;
-					height:16px;
-					//border:1px solid #FF0000;
-					@include md {
-						height:16px;
-					}
-					padding:0;
-					line-height:.6em;
 
 					span {
 						margin:0;
-						height:10px;
-						padding:2px;
-						padding-bottom:0;
+
 						font-family:'Monocle-Bold', sans-serif;
-						@include lg {
+						@include sm {
 							font-family:'Monocle-Regular', sans-serif;
 						}
 						background-color:$lightDarkBlue;
@@ -133,13 +113,15 @@ html,body {
 						text-transform:uppercase;
 
 						font-size:.7em;
+						font-size:2.5vw;
+
 						@include md {
 							font-size:.7em;
 						}
+
 						@include lg {
 							font-size:1em;
 						}
-
 					}
 				}
 			}
@@ -152,9 +134,13 @@ html,body {
 		@include sm {
 			height:80px;
 		}
+		// @include md {
+		// 	margin-top:50px;
+		// 	height:250px;
+		// }
 		@include md {
-			margin-top:50px;
-			height:250px;
+			margin-top:0;
+			height:$midPer;
 		}
 		position:relative;
 		p.explain-line-1 {
@@ -173,6 +159,11 @@ html,body {
 
 	.method-button {
 		margin-top:30px;
+
+		@include md {
+			margin-top:0;
+			height:$btmPer;
+		}
 
 		.button {
 			font-family:'Monocle-Bold', sans-serif;
@@ -220,13 +211,13 @@ html,body {
 	}
 
 	h1 {
+		border:1px solid #FF0000;
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 
 		line-height:1.6em;
 
 		height:140px;
-		//border:1px solid #FF0000;
 		@include sm {
 			height:240px;
 		}
@@ -236,9 +227,10 @@ html,body {
 		@include sm {
 			padding-top:70px;
 		}
-		@include lg {
+		@include md {
 			padding-top:100px;
-			height:300px;
+			height:$topPer;
+			//height:300px;
 		}
 
 
@@ -256,10 +248,14 @@ html,body {
 	}
 
 	.properties {
+		border:1px solid #00FF00;
 		height:550px;
 
 		@include sm {
 			height:250px;
+		}
+		@include md {
+			height:$midPer;
 		}
 		li {
 			height:175px;
@@ -304,16 +300,20 @@ html,body {
 
 
 	.contact {
+		border:1px solid #0000FF;
 		font-family: 'Source Sans Pro', sans-serif;
-		margin-top:20px;
+		//margin-top:20px;
 		font-size:.8em;
 		color:$darkBlue;
+		@include md {
+			height:$btmPer;
+		}
 		.line-piece {
-				margin-bottom:20px;
-				width:35px;
-				height:4px;
-				background-color:$darkBlue;
-			}
+			margin-bottom:20px;
+			width:35px;
+			height:4px;
+			background-color:$darkBlue;
+		}
 
 		h2 {
 			font-weight:600;
@@ -340,23 +340,39 @@ html,body {
 	} //end .contact
 
 	.meet-button {
+		.row {
+			height:100%;
+		}
 		cursor:pointer;
 		margin-top:20px;
 		@include sm {
 			margin-top:0;
 		}
+
+		@include md {
+			border: 1px solid #00FF00;
+			height:$btmPer;
+		}
+
 		.meet-logo {
-			height:80%;
+			border:1px solid #FF0000;
+			height:90%;
 			svg {
-				margin:10px auto 20px auto;
-				width:25%;
+				//margin:10px auto 20px auto;
+				//width:25%;
 				@include sm {
-					width:60%;
+					//width:60%;
+				}
+				@include md {
+					margin-top:20%;
+					max-width:80%;
+					height:auto;
 				}
 			}
 		}
 		.meet-text {
-			height:20%;
+			border:1px solid #FF00FF;
+			height:10%;
 			padding:7px 0;
 			text-align:center;
 			font-size:.7em;

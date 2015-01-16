@@ -1,9 +1,3 @@
-/** Stolen from http://davidwalsh.name/write-media-queries-sass **/
-
-$sm:768px;
-$md:992px;
-$lg:1200px;
-
 @mixin sm {
 	@media (min-width: #{$sm}) {
 		@content;
