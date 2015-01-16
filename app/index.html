@@ -49,11 +49,23 @@
                 <div class='logo-text col-xs-offset-1 col-xs-10'>
                     <div class='logo'>
                         <ul class='list-unstyled callouts'>
-                            <li><span>Insights.</span></li>
-                            <li><span>Intelligence.</span></li>
-                            <li><span>Design.</span></li>
+                            <li id='logo-text-item-0'><span>Insights.</span></li>
+                            <li id='logo-text-item-1'><span>Intelligence.</span></li>
+                            <li id='logo-text-item-2'><span>Design.</span></li>
                         </ul>
-                        <img src='./images/rabbit-text.svg' alt='rabbit'/>
+                        <svg class='img-responsive' id='rabbit-text-logo' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 548.9 282" xml:space="preserve">
+                            <g>
+                                <path class='rabbit-text' id='rabbit-text-1' fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+                                    M175,123.5c0,0-5.1-33.3-26.2-3.1c-9,12.9-13.3,32.9,5.9,32.9c18.8,0,48.2-43.5,32.1-43.5s-20,45.4,5.1,43.1S289.4,5.3,257.6,5.3
+                                    S207.5,148.2,224,152.9c16.4,4.7,33.3-42.3,20.4-42.3s-12.9,31.3,12.1,20.8C283.5,120,345.3,5.3,314,5.3s-57.6,148.4-38.4,148
+                                    c18,0,35.2-52.9,17.2-43.1c-16.1,8.6,0.4,42.3,26.6,23.1c8.6-6.3,16.4-20,18.8-24.7c-4.7,12.1-8.2,63,14.1,43.9
+                                    c22.3-19.2,96.7-147.2,61.1-147.2s7.4,267.8,118.2,267.8"/>
+                                <path class='rabbit-text' id='rabbit-text-0' fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+                                    M7,114.5c0,0,1.6,45,40.7,39.2s85-80.7,69.7-88.1c-15.3-7-33.3,52.5,12.9,46.2c-18.4,5.5-25.1,49.3,10.6,38"/>
+                                <line class='rabbit-text' id='rabbit-text-2'  fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.4" y1="74.6" x2="531.3" y2="74.6"/>
+                            </g>
+                        </svg>
+                        <!--<img id='rabbit-text-logo' src='./images/rabbit-text.svg' alt='rabbit'/>//-->
                     </div>
                 </div> <!-- end .logo-text //-->
 
@@ -156,7 +168,10 @@
 
 
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="scripts/gsap/TweenMax.min.js"></script>
+<script type="text/javascript" src="scripts/gsap/TimelineLite.min.js"></script>
+<script type="text/javascript" src="scripts/gsap/plugins/DrawSVGPlugin.min.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PG8THM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

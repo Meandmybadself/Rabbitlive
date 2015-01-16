@@ -12,6 +12,8 @@ html,body {
 	height:100%;
 }
 
+
+
 /**
  _                     _ _
 | |                   | (_)
@@ -21,6 +23,7 @@ html,body {
 |_| |_|_____)_____|\____|_|_| |_|\___ |
                                 (_____|
 **/
+
 .heading {
 	height:465px;
 
@@ -53,43 +56,72 @@ html,body {
 		.logo {
 			position:relative;
 			margin:40px auto 0 auto;
-			width:300px;
-			height:140px;
+			max-width:80%;
+			height:auto;
+			min-height:140px;
 
 			@include sm {
-				//border:1px solid #FF0000;
+				//max-width:50%;
 			}
 
 			@include md {
-				margin-top:70px;
-				width:250px;
-				height:120px;
+				//max-width:50%;
 			}
 
-			img {
-				height:100%;
-				position:absolute;
-				left:0;
-				right:0;
-				z-index:1;
+			@include lg {
+				border:1px solid #FF0000;
+
+			//	width:100%;
+			//	min-height:200px;
+			//	border:1px solid #FF0000;
 			}
+
+
+
+			svg {
+				//opacity:0;
+				max-width:90%;
+				height:auto;
+				height:100%;
+			}
+
+			// img#rabbit-text-logo {
+			// 	height:100%;
+			// 	position:absolute;
+			// 	left:0;
+			// 	right:0;
+			// 	z-index:1;
+			// }
+
 			ul {
 				position:absolute;
 				z-index:2;
-				bottom:35px;
-				right:0;
+				bottom:30%;
+				left:73%;
+
+				@include md {
+					left:170px;
+					bottom:20px;
+				}
+
+				//right:0;
 
 				li {
-
-					height:15px;
+					//overflow:hidden;
+					//width:0px;
+					height:16px;
+					//border:1px solid #FF0000;
 					@include md {
-						height:13px;
+						height:16px;
 					}
 					padding:0;
-					margin-bottom:3px;
+					line-height:.6em;
+
 					span {
+						margin:0;
 						height:10px;
 						padding:2px;
+						padding-bottom:0;
 						font-family:'Monocle-Bold', sans-serif;
 						@include lg {
 							font-family:'Monocle-Regular', sans-serif;
@@ -100,7 +132,7 @@ html,body {
 
 						font-size:.7em;
 						@include md {
-							font-size:.6em;
+							font-size:.7em;
 						}
 						@include lg {
 							font-size:1em;
