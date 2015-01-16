@@ -1,6 +1,6 @@
 html,body {
 	height:100%;
-	background-color:$lightGray;
+	background-color:$turquoise;
 }
 * {
 	box-sizing:border-box;
@@ -61,16 +61,18 @@ html,body {
 			min-height:140px;
 
 			@include sm {
+				border: 1px solid #0000FF;
 				//max-width:50%;
 			}
 
 			@include md {
+
+				border:1px solid #FF0000;
 				//max-width:50%;
 			}
 
 			@include lg {
-				border:1px solid #FF0000;
-
+				border: 1px solid #00FF00;
 			//	width:100%;
 			//	min-height:200px;
 			//	border:1px solid #FF0000;
@@ -200,6 +202,7 @@ html,body {
 **/
 .main {
 	height:100%;
+	background-color:$turquoise;
 
 	@include md {
 		//height:100%;
@@ -209,6 +212,8 @@ html,body {
 	.main-content {
 		height:100%;
 		transition:margin .4s ease;
+		background-color:$lightGray;
+
 		&.showingRabbits {
 			margin-top:-600px;
 		}
@@ -221,6 +226,7 @@ html,body {
 		line-height:1.6em;
 
 		height:140px;
+		//border:1px solid #FF0000;
 		@include sm {
 			height:240px;
 		}
@@ -231,7 +237,8 @@ html,body {
 			padding-top:70px;
 		}
 		@include lg {
-			padding-top:15%;
+			padding-top:100px;
+			height:300px;
 		}
 
 
@@ -264,6 +271,7 @@ html,body {
 					color:$darkBlue;
 					z-index:1;
 					position:absolute;
+					opacity:0;
 				}
 				dd.img {
 					width:100px;
@@ -273,6 +281,7 @@ html,body {
 					top:-30px;
 				}
 				dd.details {
+					opacity:0;
 					z-index:1;
 					position:absolute;
 					top:20px;
@@ -313,11 +322,20 @@ html,body {
 
 		a{
 			color:$darkBlue;
+			transition:color .4s ease;
+
+			&:hover {
+				color:#FFF;
+				text-decoration:none;
+			}
 		}
 
 		a.email {
 			color:$turquoise;
 			text-decoration:none;
+			&:hover {
+				color:#FFF;
+			}
 		}
 	} //end .contact
 
@@ -329,7 +347,7 @@ html,body {
 		}
 		.meet-logo {
 			height:80%;
-			img {
+			svg {
 				margin:10px auto 20px auto;
 				width:25%;
 				@include sm {
