@@ -46,10 +46,19 @@ $btmPer:25%;
 		transform:scale(.8,.5);
 		transform-origin:20% bottom;
 
+		.modal-container {
+			transform-origin:center bottom;
+			transition:all .5s ease;
+			transform:scale(.8, .5);
+		}
+
 		&.active {
 			visibility:visible;
 			opacity:1;
 			transform:scale(1,1);
+			.modal-container {
+				transform:scale(1, 1);
+			}
 		}
 
 		z-index:3;
