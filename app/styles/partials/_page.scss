@@ -47,6 +47,9 @@ $btmPer:25%;
 		color:$lightBlue;
 		display:table;
 		font-size:.8em;
+		@include md {
+			font-size:1em;
+		}
 
 		.close-btn {
 			cursor:pointer;
@@ -107,14 +110,20 @@ $btmPer:25%;
 	}
 
 	.method-modal {
+		opacity:0;
 		height:($topPer + $midPer) * .95;
+		@include sm {
+			height:($topPer + $midPer) * .9;
+		}
+		@include md {
+			height:($topPer + $midPer) * .95;
+		}
 		p {
 			margin-bottom:20px;
 		}
 	}
 
 	.live-modal {
-		opacity:0;
 		height:$topPer * .95;
 	}
 
