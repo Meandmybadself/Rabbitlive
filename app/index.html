@@ -33,9 +33,12 @@
     <meta http-equiv="x-rim-auto-match" content="none" />
 
     <!-- css //-->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link media="screen, print" rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <!-- endbuild -->
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 <body>
@@ -344,7 +347,7 @@
                 <div class='contact col-xs-offset-1 col-xs-11 col-sm-2 col-md-offset-0 col-md-2'><a class='email' href='mailto:info@rabbitlive.com'>info@rabbitlive.com</a><br/><a href='tel:6125545844'>612-554-5844</a></div>
                 <div class='contact col-xs-offset-1 col-xs-11 col-sm-3 col-md-offset-0 col-md-4'><a href='https://www.google.com/maps/place/broadhead./@44.981834,-93.2745981,17z/data=!4m7!1m4!3m3!1s0x52b3328f8d946185:0x7db224b1f56f6cb8!2s123+N+3rd+St,+Minneapolis,+MN+55401!3b1!3m1!1s0x52b3328f8d818919:0x736171834f6100c8'>123 N. 3rd Street #400,<br/>Minneapolis, MN 55401</a></div>
 
-                <div class='meet-button col-sm-offset-1 col-sm-2 col-xs-12 col-md-offset-1 col-md-2'>
+                <div class='meet-button col-xs-offset-4 col-xs-4 col-sm-offset-1 col-sm-2 col-xs-12 col-md-offset-1 col-md-2'>
                     <div class='row'>
                         <div class='meet-logo col-sm-11 col-xs-12 text-center'>
                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -406,7 +409,10 @@
                 </div> <!-- end meet button //-->
 
                 <div class='rabbits col-xs-12'>
-                    <div class='close-btn hidden-xs'></div>
+                   <div class='close-btn hidden-xs hidden-sm'>
+                        <div class='facade front'><img src='images/close.svg' /></div>
+                        <div class='facade back'></div>
+                    </div>
                     <div class='col-xs-offset-1 col-xs-11'>
                         <div class='team-heading'>
                             The Team
@@ -432,11 +438,11 @@
                             <li>LIVE</li>
                         </ul>
                     </div>
-                    <div class='employee col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4'>
+                    <div class='employee col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3'>
                         <h3>Emilie Hitch</h3>
                         <p>Emilie is a classically trained anthropologist with 10+ years experience in applied anthropology. She understands research, human behavior and motivators, and is a &ldquo;congenial disruptor&rdquo; to any project she&rsquo;s part of, striving for deeper knowledge of audiences and markets to challenge strategy.</p>
                     </div>
-                    <div class='employee col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4'>
+                    <div class='employee col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-3'>
                         <h3>Troy Schroeder</h3>
                         <p>Troy brings nearly 20 years of experience in marketing and a diverse background in strategic plan development and execution. His work on both the agency and client side allows him to quickly understand organizations and build consensus across functions to determine what really matters for success. Troy&rsquo;s ability to combine sound strategy with innovative technology has consistently driven growth for leading brands.</p>
                     </div>
@@ -446,12 +452,18 @@
     </div>
 </div>
 
-
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/gsap/TweenMax.min.js"></script>
-<script type="text/javascript" src="scripts/gsap/TimelineLite.min.js"></script>
 <script type="text/javascript" src="scripts/gsap/plugins/DrawSVGPlugin.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({app,.tmp}) scripts/main.js -->
 <script type="text/javascript" src="scripts/main.js"></script>
+<!-- endbuild -->
+
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PG8THM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

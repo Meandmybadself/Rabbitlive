@@ -18,6 +18,43 @@ $midPer:35%;
 $btmPer:25%;
 
 
+.close-btn {
+	cursor:pointer;
+	position:absolute;
+	right:20px;
+	z-index:3;
+	width:35px;
+
+	.facade {
+		position:absolute;
+		width:30px;
+		height:30px;
+	}
+	.front {
+		top:0;
+		left:0;
+		transition:background .3s ease;
+		background-color:$turquoise;
+		z-index:2;
+		img {
+			margin-left:22%;
+			margin-top:22%;
+			width:50%;
+			height:50%;
+		}
+		&:hover {
+			background-color:$lightGray;
+		}
+	}
+	.back {
+		height:35px;
+		top:0;
+		left:5px;
+		background-color:$darkBlue;
+		z-index:1;
+	}
+}
+
 /**
  _                     _ _
 | |                   | (_)
@@ -29,10 +66,14 @@ $btmPer:25%;
 **/
 
 .heading {
-	height:465px;
+	height:515px;
+	background-color:$darkBlue;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight:300;
+	color:$lightDarkBlue;
 
 	@include sm {
-		height:430px;
+		height:480px;
 	}
 
 	@include md {
@@ -46,10 +87,17 @@ $btmPer:25%;
 		transform:scale(.8,.5);
 		transform-origin:20% bottom;
 
+		.close-btn {
+			transform-origin:center top;
+			transition:all .6s ease;
+			transform:scale(.8, .1);
+		}
+
 		.modal-container {
 			transform-origin:center bottom;
 			transition:all .5s ease;
 			transform:scale(.8, .5);
+
 		}
 
 		&.active {
@@ -57,6 +105,10 @@ $btmPer:25%;
 			opacity:1;
 			transform:scale(1,1);
 			.modal-container {
+				transform:scale(1, 1);
+
+			}
+			.close-btn {
 				transform:scale(1, 1);
 			}
 		}
@@ -69,41 +121,10 @@ $btmPer:25%;
 		display:table;
 		font-size:.8em;
 		@include md {
-			font-size:1em;
+			font-size:1.3em;
 		}
 
-		.close-btn {
-			cursor:pointer;
-			position:absolute;
-			right:20px;
-			z-index:3;
-			width:35px;
 
-			.facade {
-				position:absolute;
-				width:30px;
-				height:30px;
-			}
-			.front {
-				top:0;
-				left:0;
-				background-color:$turquoise;
-				z-index:2;
-				img {
-					margin-left:22%;
-					margin-top:22%;
-					width:50%;
-					height:50%;
-				}
-			}
-			.back {
-				height:35px;
-				top:0;
-				left:5px;
-				background-color:$darkBlue;
-				z-index:1;
-			}
-		}
 		.modal-container {
 			height:100%;
 			display:table-cell;
@@ -147,10 +168,7 @@ $btmPer:25%;
 		height:$topPer * .95;
 	}
 
-	background-color:$darkBlue;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight:300;
-	color:$lightDarkBlue;
+
 
 	line-height:1.2em;
 	@include md {
@@ -164,7 +182,7 @@ $btmPer:25%;
 	.logo-text {
 		position:relative;
 		height:180px;
-
+		margin-top:30px;
 		@include md {
 			//border:1px solid #FF0000;
 			height:$topPer;
@@ -207,31 +225,16 @@ $btmPer:25%;
 			ul {
 				position:absolute;
 				z-index:2;
-				bottom:30%;
+				bottom:20%;
 				left:64%;
-
 				li {
-
 					span {
-						margin:0;
-
-						font-family:'Monocle-Bold', sans-serif;
-						@include sm {
-							font-family:'Monocle-Regular', sans-serif;
-						}
 						background-color:$lightDarkBlue;
 						color:$darkBlue;
 						text-transform:uppercase;
-
-						font-size:.7em;
-						font-size:2.5vw;
-
-						@include md {
-							font-size:.7em;
-						}
-
-						@include lg {
-							font-size:1em;
+						font-family:'Monocle-Bold', sans-serif;
+						@include sm {
+							font-family:'Monocle-Regular', sans-serif;
 						}
 					}
 				}
@@ -275,7 +278,7 @@ $btmPer:25%;
 
 
 	.method-button {
-		margin-top:30px;
+		margin-top:50px;
 
 		@include md {
 			margin-top:0;
@@ -309,11 +312,14 @@ $btmPer:25%;
 
 **/
 .main {
-	height:100%;
+	min-height:1065px;
 	background-color:$turquoise;
 
+	@include sm {
+		min-height:100%;
+	}
 	@include md {
-		//height:100%;
+		height:100%;
 		overflow:hidden;
 	}
 
@@ -323,32 +329,44 @@ $btmPer:25%;
 		background-color:$lightGray;
 
 		&.showingRabbits {
-			margin-top:-600px;
+			@include md {
+				margin-top:-600px;
+			}
 		}
 	}
 
 	h1 {
+
 		//border:1px solid #FF0000;
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
-
 		line-height:1.6em;
+		height:100px;
+		margin-top:55px;
+		margin-bottom:40px;
 
-		height:140px;
 		@include sm {
-			height:240px;
+			height:200px;
 		}
 		@include md {
 			height:$topPer;
 		}
 
 
-		padding-top:30px;
 		@include sm {
-			padding-top:70px;
+			margin-top:30px;
+		}
+
+		padding-top:0px;
+		@include sm {
+			padding-top:50px;
 		}
 		@include md {
-			padding-top:0;
+			padding-top:50px;
+
+		}
+		@include lg {
+
 		}
 
 
@@ -357,15 +375,11 @@ $btmPer:25%;
 			font-size:2em;
 		}
 		@include md {
-			font-size:2em;
-		}
-		@include lg {
-			font-size:2.5em;
+			font-size:2.4em;
 		}
 
-		p.heading-1 {
-			margin-top:$topPad * .4;
-		}
+
+
 
 	}
 
@@ -422,11 +436,11 @@ $btmPer:25%;
 
 
 	.contact {
-		//border:1px solid #0000FF;
 		font-family: 'Source Sans Pro', sans-serif;
-		//margin-top:20px;
 		font-size:.8em;
 		color:$darkBlue;
+		height:45px;
+
 		@include md {
 			height:$btmPer;
 		}
@@ -462,11 +476,20 @@ $btmPer:25%;
 	} //end .contact
 
 	.meet-button {
+		border:1px solid #FF0000;
+		background-color:$lightGray;
+		cursor:pointer;
+		margin-top:20px;
+
+		@include md {
+			height:$btmPer;
+		}
+
 		.row {
 			height:100%;
 		}
-		cursor:pointer;
-		margin-top:20px;
+
+
 		@include sm {
 			margin-top:0;
 		}
@@ -477,17 +500,22 @@ $btmPer:25%;
 		}
 
 		.meet-logo {
-			//border:1px solid #FF0000;
+			border:1px solid #FF0000;
 			height:90%;
 			svg {
 				//margin:10px auto 20px auto;
 				//width:25%;
 				@include sm {
-					//width:60%;
+
 				}
 				@include md {
 					margin-top:20%;
 					max-width:80%;
+					height:auto;
+				}
+				@include lg {
+					margin-top:0;
+					max-width:50%;
 					height:auto;
 				}
 			}
@@ -523,15 +551,26 @@ $btmPer:25%;
 		padding-bottom:50px;
 		min-height:600px;
 
+		.close-btn {
+			.front {
+				background-color:$darkBlue;
+			}
+			.back {
+				background-color:$lightBlue;
+			}
+		}
+
 		.team-heading {
 			width:130px;
-
-			margin-top:20px;
+			margin-top:60px;
 
 			@include sm {
-				margin:150px auto 35px auto;
+				margin:100px auto 35px auto;
 			}
 
+			@include md {
+				margin:100px auto 35px auto;
+			}
 			color:$lightGray;
 			text-transform:uppercase;
 			font-family:'Monocle-Bold', sans-serif;
@@ -576,8 +615,9 @@ $btmPer:25%;
 			}
 			p {
 				font-family: 'Source Sans Pro', sans-serif;
-				color:$darkBlue;
+				color:$lightDarkBlue;
 				font-size:$copySize;
+				font-weight:300;
 				line-height:1.4em;
 			}
 		}

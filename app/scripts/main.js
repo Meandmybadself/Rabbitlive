@@ -1,4 +1,4 @@
-var turq = '#34CCB0', activeModal;
+var activeModal;
 
 function toggleRabbits() {
 	var mc = $('.main-content');
@@ -42,6 +42,10 @@ function showModal(id) {
 	}
 	$('.' + id).addClass('active');
 	activeModal = id;
+}
+
+function onMeetButtonBlur() {
+	TweenMax.to($(this).find('.rabbit-logo-path'), 1, {drawSVG:"0 100%", repeat:0, yoyo:false, overwrite:1});
 }
 
 function hideActiveModal() {
@@ -91,32 +95,25 @@ $(function() {
 	});
 
 
-	$('.page-modal .close-btn').on('click', hideActiveModal);
-
-	$('.method-button .button').on('click', onMethodButtonClicked);
-
-	$('#live-intel-button').on('click', onLiveIntelClicked);
-
+	/** Button event handlers **/
 	$('.properties dl').on('mouseover', function() {
-		TweenMax.to($(this).find('.icon-path'), 1.5, {css:{'stroke':turq}});
+		TweenMax.to($(this).find('.icon-path'), .5, {css:{'stroke':'#34CCB0'}});
 	});
 
 	$('.properties dl').on('mouseout', function() {
-		TweenMax.to($(this).find('.icon-path'), 1.5, {css:{'stroke':'#ffffff'}});
+		TweenMax.to($(this).find('.icon-path'), .5, {css:{'stroke':'#ffffff'}});
 	});
 
 	$('.meet-button').on('mouseover', function() {
-		TweenMax.staggerTo($(this).find('.rabbit-logo-path'), .75, {drawSVG:"0%", yoyo:true, repeat:-1, ease:Quad.easeInOut}, .2);
+		if ($(window).width() > 768) {
+			TweenMax.staggerTo($(this).find('.rabbit-logo-path'), 1, {drawSVG:"0%", yoyo:true, repeat:-1, ease:Quad.easeInOut}, .1);
+		}
 	});
 
-	$('.meet-button').on('mouseout', function() {
-		TweenMax.to($(this).find('.rabbit-logo-path'), 1, {drawSVG:"100%", repeat:0, yoyo:false});
-	});
-	$('.meet-button').on('mouseleave', function() {
-		TweenMax.to($(this).find('.rabbit-logo-path'), 1, {drawSVG:"100%", repeat:0, yoyo:false});
-	});
-
-
+	$('.meet-button').on('mouseout mouseleave', onMeetButtonBlur);
+	$('.page-modal .close-btn').on('click', hideActiveModal);
+	$('.method-button .button').on('click', onMethodButtonClicked);
+	$('#live-intel-button').on('click', onLiveIntelClicked);
 	$('.meet-button').click(toggleRabbits);
 });
 
