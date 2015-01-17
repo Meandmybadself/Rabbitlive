@@ -40,6 +40,18 @@ $btmPer:25%;
 	}
 
 	.page-modal {
+		visibility:hidden;
+		opacity:0;
+		transition:all .3s ease;
+		transform:scale(.8,.5);
+		transform-origin:20% bottom;
+
+		&.active {
+			visibility:visible;
+			opacity:1;
+			transform:scale(1,1);
+		}
+
 		z-index:3;
 		position:absolute;
 		width:100%;
@@ -110,7 +122,6 @@ $btmPer:25%;
 	}
 
 	.method-modal {
-		opacity:0;
 		height:($topPer + $midPer) * .95;
 		@include sm {
 			height:($topPer + $midPer) * .9;
@@ -239,6 +250,12 @@ $btmPer:25%;
 			font-size:1.1em;
 			a {
 				color:$lightGray;
+				cursor:pointer;
+				transition:color .3s ease;
+				&:hover, &.active {
+					color:$turquoise;
+					text-decoration:none;
+				}
 			}
 		}
 		p.explain-line-2 {
@@ -264,7 +281,7 @@ $btmPer:25%;
 			padding:14px 0 9px 0;
 			cursor:pointer;
 			transition:background .3s;
-			&:hover {
+			&:hover, &.active {
 				background:$turquoise;
 				color:$darkBlue;
 			}

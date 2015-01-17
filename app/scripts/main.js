@@ -1,4 +1,4 @@
-var turq = '#34CCB0';
+var turq = '#34CCB0', activeModal;
 
 function toggleRabbits() {
 	var mc = $('.main-content');
@@ -8,6 +8,55 @@ function toggleRabbits() {
 		$('.main-content').addClass('showingRabbits');
 	}
 }
+
+function onMethodButtonClicked(e) {
+	e.preventDefault();
+	if (activeModal == 'method-modal') {
+		hideActiveModal();
+		return;
+	}
+
+	showModal('method-modal');
+}
+
+function onLiveIntelClicked(e) {
+	e.preventDefault();
+	if (activeModal == 'live-modal') {
+		hideActiveModal();
+		return;
+	}
+	showModal('live-modal');
+}
+
+function showModal(id) {
+	if (activeModal) {
+		hideActiveModal();
+	}
+	switch(id) {
+		case 'live-modal':
+			$('#live-intel-button').addClass('active');
+		break;
+		case 'method-modal':
+			$('.method-button .button').addClass('active');
+		break;
+	}
+	$('.' + id).addClass('active');
+	activeModal = id;
+}
+
+function hideActiveModal() {
+	$('.' + activeModal).removeClass('active');
+	switch(activeModal) {
+		case 'live-modal':
+			$('#live-intel-button').removeClass('active');
+		break;
+		case 'method-modal':
+			$('.method-button .button').removeClass('active');
+		break;
+	}
+	activeModal = null;
+}
+
 
 $(function() {
 
@@ -29,11 +78,8 @@ $(function() {
 		//TweenMax.from('.properties dt', 3, {opacity:0});
 
 
-
 		TweenMax.staggerTo('.properties dt', 1, {opacity:1}, 1);
 		TweenMax.staggerTo('.properties dd.details', .5, {css:{'opacity':1}, ease:Quad.easeOut}, 1);
-
-
 
 		TweenMax.set('.icon-path', {drawSVG:"0%, 0%"});
 		var stpTL = new TimelineMax();
@@ -42,9 +88,14 @@ $(function() {
 		stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut, delay:0});
 
 		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", ease:Quad.eastOut});
-
-
 	});
+
+
+	$('.page-modal .close-btn').on('click', hideActiveModal);
+
+	$('.method-button .button').on('click', onMethodButtonClicked);
+
+	$('#live-intel-button').on('click', onLiveIntelClicked);
 
 	$('.properties dl').on('mouseover', function() {
 		TweenMax.to($(this).find('.icon-path'), 1.5, {css:{'stroke':turq}});
