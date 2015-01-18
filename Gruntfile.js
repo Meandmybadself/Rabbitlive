@@ -67,7 +67,6 @@ module.exports = function (grunt) {
       compass: {
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:dev']
-       // tasks: ['compass', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -134,8 +133,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd:'<%= config.app %>/styles/',
-          src: '{,*/}*.css'
+          cwd:'<%= config.dist%>/styles/',
+          src: '*.css',
+          dest:'<%= config.dist%>/styles/'
         }]
       }
     },
@@ -200,7 +200,23 @@ module.exports = function (grunt) {
         }]
       }
     },
+    cssmin: {
+      dist: {
+        options: {
+          keepSpecialComments:0,
+          report:'min'
+        },
+        files: [
+          {
+            expand: true,
+            cwd:'<%= config.dist%>/styles/',
+            src: '*.css',
+            dest:'<%= config.dist%>/styles/'
+          }
+        ]
+      }
 
+    },
     htmlmin: {
       dist: {
         options: {
@@ -214,12 +230,23 @@ module.exports = function (grunt) {
           removeRedundantAttributes: true,
           useShortDoctype: true
         },
-        files: [{
-          expand: true,
-          cwd: '<%= config.dist %>',
-          src: '{,*/}*.html',
-          dest: '<%= config.dist %>'
+        files:[{
+          expand:true,
+          cwd:'<%= config.dist %>/',
+          src:'**/*.html',
+          dest:'dist/'
         }]
+        // files: {
+        //   '<%= config.dist %>/index.html'
+        // }
+
+          //{
+          //  expand: true,
+          // // cwd: '<%= config.dist %>',
+          //  src:  '<%= config.dist %>/*.html',
+          //  dest: '<%= config.dist %>'
+          //}
+
       }
     },
 
@@ -237,7 +264,8 @@ module.exports = function (grunt) {
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*'
           ]
-        }, {
+        },
+        {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
           dest: '<%= config.dist %>/.htaccess'
         }]
@@ -302,16 +330,16 @@ module.exports = function (grunt) {
     //Combines JS?
     'concat',
     //Minifies CSS
-    'cssmin',
-    //Smooshes JS?
+    'cssmin:dist',
+    //Smooshes JS
     'uglify',
     //Copies all the other shit.
     'copy:dist',
     'modernizr',
-    'rev',
+    //'rev',
     'usemin',
     'htmlmin',
-    'rsync'
+    //'rsync'
   ]);
 
   grunt.registerTask('default', [
