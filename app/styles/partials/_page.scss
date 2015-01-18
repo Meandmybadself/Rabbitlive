@@ -188,15 +188,26 @@ $btmPer:25%;
 		@include md {
 			height:$topPer;
 			margin-top:0;
-			//padding-top:$topPad * .4;
+			padding-top:20%;
 		}
+
 
 
 		.logo {
 			position:relative;
-			max-width:100%;
+			max-width:90%;
 			height:auto;
 			margin-top:20px;
+
+			// @include sm {
+			// 	border:1px solid #FF0000;
+			// }
+			// @include md {
+			// 	border:1px solid #00FF00;
+			// }
+			// @include lg {
+			// 	border:1px solid #0000FF;
+			// }
 
 			@include sm {
 				max-width:60%;
@@ -219,18 +230,30 @@ $btmPer:25%;
 
 			svg {
 				//opacity:0;
-				max-width:88%;
+				max-width:80%;
 				height:auto;
 				height:100%;
+
 			}
 
 			ul {
+				//Reset all this.  It's inheriting from the side panel font stylings.
+				* {
+					padding:0;
+					margin:0;
+					font-size:1em;
+					line-height:1em;
+				}
+
 				position:absolute;
 				z-index:2;
-				bottom:20%;
-				left:64%;
+				bottom:14%;
+				left:58%;
+
 				li {
+					margin-bottom:2px;
 					span {
+						padding-top:2px;
 						background-color:$lightDarkBlue;
 						color:$darkBlue;
 						text-transform:uppercase;
@@ -370,6 +393,8 @@ $btmPer:25%;
 		}
 		@include md {
 			padding-top:50px;
+			margin-top:0;
+			margin-bottom:0;
 
 		}
 		@include lg {
@@ -417,6 +442,7 @@ $btmPer:25%;
 					position:absolute;
 					left:-25px;
 					top:-30px;
+					opacity:0;
 				}
 				dd.details {
 					opacity:0;
@@ -485,11 +511,7 @@ $btmPer:25%;
 	.meet-button {
 		background-color:$lightGray;
 		cursor:pointer;
-		//margin-top:20px;
-
-		@include sm {
-			margin-top:0;
-		}
+		margin-top:0;
 
 		@include md {
 			height:$btmPer;
@@ -503,15 +525,14 @@ $btmPer:25%;
 		.meet-logo {
 			height:90%;
 			svg {
-				@include sm {
 
-				}
 				@include md {
-					margin-top:20%;
+					margin-top:10%;
 					max-width:80%;
 					height:auto;
 				}
 				@include lg {
+					max-width:60%;
 					margin-top:0;
 				}
 			}
@@ -548,6 +569,7 @@ $btmPer:25%;
 		min-height:600px;
 
 		.close-btn {
+			right:15px;
 			.front {
 				background-color:$darkBlue;
 			}

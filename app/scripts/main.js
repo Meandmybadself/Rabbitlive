@@ -1,14 +1,18 @@
 var activeModal;
 
+/** Handles opening / closing of Meet Rabbits section in lg mode. **/
 function toggleRabbits() {
 	var mc = $('.main-content');
 	if (mc.hasClass('showingRabbits')) {
 		$('.main-content').removeClass('showingRabbits');
 	} else {
 		$('.main-content').addClass('showingRabbits');
+		//Also, tell the rabbit to stop animating.
+		onMeetButtonBlur();
 	}
 }
 
+/** Handles click of LIVE Method button. **/
 function onMethodButtonClicked(e) {
 	e.preventDefault();
 	if (activeModal == 'method-modal') {
@@ -19,6 +23,7 @@ function onMethodButtonClicked(e) {
 	showModal('method-modal');
 }
 
+/** Handles click of 'Live Intelligence' text **/
 function onLiveIntelClicked(e) {
 	e.preventDefault();
 	if (activeModal == 'live-modal') {
@@ -28,11 +33,13 @@ function onLiveIntelClicked(e) {
 	showModal('live-modal');
 }
 
+/** Closes Meet Rabbits in lg mode. **/
 function onRabbitCloseButtonClicked(e) {
 	e.preventDefault();
 	$('.main-content').removeClass('showingRabbits');
 }
 
+/** Shows left-side modals **/
 function showModal(id) {
 	if (activeModal) {
 		hideActiveModal();
@@ -49,10 +56,12 @@ function showModal(id) {
 	activeModal = id;
 }
 
+/** Called when the Meet the Rabbits button is moused-out. Returns the SVG to its initial state. **/
 function onMeetButtonBlur() {
 	TweenMax.to($(this).find('.rabbit-logo-path'), 1, {drawSVG:"0 100%", repeat:0, yoyo:false, overwrite:1});
 }
 
+/** Hides the active side modal & dependencies. **/
 function hideActiveModal() {
 	$('.' + activeModal).removeClass('active');
 	switch(activeModal) {
@@ -67,6 +76,7 @@ function hideActiveModal() {
 }
 
 
+/** onReady handler. **/
 $(function() {
 
 	$(window).load(function() {
@@ -86,19 +96,27 @@ $(function() {
 
 		//TweenMax.from('.properties dt', 3, {opacity:0});
 
+		TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:1.5}, 1);
+		TweenMax.staggerTo('.properties dd.details', 1, {opacity:1, delay:1.5, ease:Quad.easeOut}, 1);
 
-		TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:2}, 1);
-		TweenMax.staggerTo('.properties dd.details', 1, {opacity:1, delay:2, ease:Quad.easeOut}, 1);
-
+		//Restore property icon opacity.
+		TweenMax.set('dd.img', {opacity:1});
+		//Reset property icon paths to 0%;
 		TweenMax.set('.icon-path', {drawSVG:"0%, 0%"});
-		var stpTL = new TimelineMax();
-		stpTL.repeat(-1);
-		stpTL.staggerTo('.icon-path', 1, {drawSVG:"0% 50%", ease:Quad.easeIn}, 1);
-		stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
-
 		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", ease:Quad.eastOut});
 
-		TweenMax.staggerTo($('h1 p'), 1, {opacity:1, delay:1}, .7);
+		setTimeout(function(){
+
+			var stpTL = new TimelineMax();
+			stpTL.repeat(-1);
+			stpTL.staggerTo('.icon-path', 1, {drawSVG:"0% 50%", ease:Quad.easeIn}, 1);
+			stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
+
+
+		}, 1500);
+
+
+		TweenMax.staggerTo($('h1 p'), 1, {opacity:1, delay:.2}, .9);
 	});
 
 
@@ -112,6 +130,7 @@ $(function() {
 	});
 
 	$('.meet-button').on('mouseover', function() {
+		//Only do this is the screen is in large media query mode.
 		if ($(window).width() > 768) {
 			TweenMax.staggerTo($(this).find('.rabbit-logo-path'), 1, {drawSVG:"0%", yoyo:true, repeat:-1, ease:Quad.easeInOut}, .1);
 		}
@@ -124,4 +143,3 @@ $(function() {
 	$('#live-intel-button').on('click', onLiveIntelClicked);
 	$('.meet-button').click(toggleRabbits);
 });
-
