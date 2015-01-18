@@ -35,8 +35,12 @@
 
     <!-- css //-->
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
-    <!-- build:css(.tmp) styles/main.css -->
+
+    <!-- build:css(.) styles/vendor.css -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen, print" rel="stylesheet" type="text/css"/>
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/styles.css -->
     <link href="styles/styles.css" media="screen, print" rel="stylesheet" type="text/css"  />
     <!-- endbuild -->
 
@@ -456,6 +460,11 @@
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/gsap.js -->
+<!-- bower:js -->
 <script type="text/javascript" src="scripts/gsap/TweenMax.min.js"></script>
 <script type="text/javascript" src="scripts/gsap/plugins/DrawSVGPlugin.min.js"></script>
 <!-- endbower -->

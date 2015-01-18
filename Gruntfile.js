@@ -262,13 +262,18 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'fonts/{,*/}*.*'
           ]
         },
         {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
           dest: '<%= config.dist %>/.htaccess'
-        }]
+        },
+        {
+          src: '.tmp/concat/styles/vendor.css',
+          dest: '<%= config.dist %>/styles/vendor.css'
+        }
+        ]
       }
     },
 
@@ -338,7 +343,7 @@ module.exports = function (grunt) {
     'modernizr',
     //'rev',
     'usemin',
-    'htmlmin',
+    //'htmlmin',
     //'rsync'
   ]);
 

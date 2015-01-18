@@ -81,13 +81,10 @@ $(function() {
 
 	$(window).load(function() {
 
-
-
 		//Set the progress of .rabbit-text paths to 0.
 		TweenMax.set('.rabbit-text', {drawSVG:0});
 		//Bring its opacity to 1.
 		TweenMax.set('.logo-text', {opacity:1});
-
 
 		var rTextTL = new TimelineLite();
 		rTextTL.set('#rabbit-text-logo', {opacity:1});
