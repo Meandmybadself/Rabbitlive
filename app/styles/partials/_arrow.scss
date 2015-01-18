@@ -1,0 +1,16 @@
+@mixin arrowBottom($top,$left,$size) {
+	&:after {
+		top: 100%;
+		left: 15%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(136, 183, 213, 0);
+		border-top-color: $lightDarkBlue;
+		border-width: 10px;
+		margin-left: -10px;
+	}
+}

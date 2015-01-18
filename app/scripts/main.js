@@ -28,6 +28,11 @@ function onLiveIntelClicked(e) {
 	showModal('live-modal');
 }
 
+function onRabbitCloseButtonClicked(e) {
+	e.preventDefault();
+	$('.main-content').removeClass('showingRabbits');
+}
+
 function showModal(id) {
 	if (activeModal) {
 		hideActiveModal();
@@ -82,16 +87,18 @@ $(function() {
 		//TweenMax.from('.properties dt', 3, {opacity:0});
 
 
-		TweenMax.staggerTo('.properties dt', 1, {opacity:1}, 1);
-		TweenMax.staggerTo('.properties dd.details', .5, {css:{'opacity':1}, ease:Quad.easeOut}, 1);
+		TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:2}, 1);
+		TweenMax.staggerTo('.properties dd.details', 1, {opacity:1, delay:2, ease:Quad.easeOut}, 1);
 
 		TweenMax.set('.icon-path', {drawSVG:"0%, 0%"});
 		var stpTL = new TimelineMax();
 		stpTL.repeat(-1);
-		stpTL.staggerTo('.icon-path', 2, {drawSVG:"0% 50%", ease:Quad.easeIn, delay:0}, 1);
-		stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut, delay:0});
+		stpTL.staggerTo('.icon-path', 1, {drawSVG:"0% 50%", ease:Quad.easeIn}, 1);
+		stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
 
 		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", ease:Quad.eastOut});
+
+		TweenMax.staggerTo($('h1 p'), 1, {opacity:1, delay:1}, .7);
 	});
 
 
@@ -113,6 +120,7 @@ $(function() {
 	$('.meet-button').on('mouseout mouseleave', onMeetButtonBlur);
 	$('.page-modal .close-btn').on('click', hideActiveModal);
 	$('.method-button .button').on('click', onMethodButtonClicked);
+	$('.rabbits .close-btn').on('click', onRabbitCloseButtonClicked);
 	$('#live-intel-button').on('click', onLiveIntelClicked);
 	$('.meet-button').click(toggleRabbits);
 });

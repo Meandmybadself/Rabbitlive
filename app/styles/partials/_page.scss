@@ -17,7 +17,6 @@ $topPad:40%;
 $midPer:35%;
 $btmPer:25%;
 
-
 .close-btn {
 	cursor:pointer;
 	position:absolute;
@@ -30,6 +29,7 @@ $btmPer:25%;
 		width:30px;
 		height:30px;
 	}
+
 	.front {
 		top:0;
 		left:0;
@@ -37,7 +37,7 @@ $btmPer:25%;
 		background-color:$turquoise;
 		z-index:2;
 		img {
-			margin-left:22%;
+			margin-left:23%;
 			margin-top:22%;
 			width:50%;
 			height:50%;
@@ -71,6 +71,8 @@ $btmPer:25%;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight:300;
 	color:$lightDarkBlue;
+
+
 
 	@include sm {
 		height:480px;
@@ -184,10 +186,11 @@ $btmPer:25%;
 		height:180px;
 		margin-top:30px;
 		@include md {
-			//border:1px solid #FF0000;
 			height:$topPer;
-			padding-top:$topPad * .4;
+			margin-top:0;
+			//padding-top:$topPad * .4;
 		}
+
 
 		.logo {
 			position:relative;
@@ -196,7 +199,6 @@ $btmPer:25%;
 			margin-top:20px;
 
 			@include sm {
-				//border: 1px solid #0000FF;
 				max-width:60%;
 				margin-left:auto;
 				margin-right:auto;
@@ -206,11 +208,11 @@ $btmPer:25%;
 				max-width:100%;
 				margin-left:0;
 				margin-right:0;
-				//border:1px solid #FF0000;
+				margin-top:0;
 			}
 
 			@include lg {
-				//border: 1px solid #00FF00;
+				margin-top:0;
 			}
 
 
@@ -312,6 +314,7 @@ $btmPer:25%;
 
 **/
 .main {
+
 	min-height:1065px;
 	background-color:$turquoise;
 
@@ -345,6 +348,10 @@ $btmPer:25%;
 		margin-top:55px;
 		margin-bottom:40px;
 
+		p {
+			opacity:0;
+		}
+
 		@include sm {
 			height:200px;
 		}
@@ -366,7 +373,10 @@ $btmPer:25%;
 
 		}
 		@include lg {
-
+			margin-top:0;
+			margin-bottom:0;
+			//padding-top:0;
+			padding-top:10%;
 		}
 
 
@@ -377,10 +387,6 @@ $btmPer:25%;
 		@include md {
 			font-size:2.4em;
 		}
-
-
-
-
 	}
 
 	.properties {
@@ -444,6 +450,7 @@ $btmPer:25%;
 		@include md {
 			height:$btmPer;
 		}
+
 		.line-piece {
 			margin-bottom:20px;
 			width:35px;
@@ -476,10 +483,13 @@ $btmPer:25%;
 	} //end .contact
 
 	.meet-button {
-		border:1px solid #FF0000;
 		background-color:$lightGray;
 		cursor:pointer;
-		margin-top:20px;
+		//margin-top:20px;
+
+		@include sm {
+			margin-top:0;
+		}
 
 		@include md {
 			height:$btmPer;
@@ -490,21 +500,9 @@ $btmPer:25%;
 		}
 
 
-		@include sm {
-			margin-top:0;
-		}
-
-		@include md {
-			//border: 1px solid #00FF00;
-			height:$btmPer;
-		}
-
 		.meet-logo {
-			border:1px solid #FF0000;
 			height:90%;
 			svg {
-				//margin:10px auto 20px auto;
-				//width:25%;
 				@include sm {
 
 				}
@@ -515,8 +513,6 @@ $btmPer:25%;
 				}
 				@include lg {
 					margin-top:0;
-					max-width:50%;
-					height:auto;
 				}
 			}
 		}
