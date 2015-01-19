@@ -99,16 +99,19 @@ $(function() {
 
 		TweenMax.from('.properties dt', 3, {opacity:0});
 
-		TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:1.5}, 1);
-		TweenMax.staggerTo('.properties dd.details', 1, {opacity:1, delay:1.5, ease:Quad.easeOut}, 1);
+		//TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:1.5}, 1);
+		TweenMax.to('.properties dt, .properties dd.details, .meet-text', 1, {opacity:1, delay:1.5, ease:Quad.easeOut}, 1);
+		TweenMax.to('.main .contact, .method-button', 1, {opacity:1, delay:2, paddingTop:0, ease:Quad.easeOut}, 1);
 
-		TweenMax.to('.explain, .method-button', 1, {opacity:1, delay:1.5});
+		TweenMax.to('.explain', 1, {opacity:1, delay:1.5});
 
 		//Restore property icon opacity.
 		TweenMax.set('dd.img', {opacity:1});
 		//Reset property icon paths to 0%;
 		TweenMax.set('.icon-path', {drawSVG:"0%, 0%"});
-		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", ease:Quad.eastOut});
+		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", delay:.5, ease:Quad.eastOut});
+		TweenMax.from($('.meet-button .meet-logo'), 2, {opacity:0, delay:.5, ease:Quad.eastOut});
+		TweenMax.from($('circle'), 2, {opacity:0, delay:.5, ease:Quad.eastOut});
 
 		setTimeout(function(){
 
