@@ -86,6 +86,7 @@ $(function() {
 		//Bring its opacity to 1.
 		TweenMax.set('.logo-text', {opacity:1});
 
+		//Animation for the top left text logo.
 		var rTextTL = new TimelineLite();
 		rTextTL.set('#rabbit-text-logo', {opacity:1});
 		rTextTL.set('.rabbit-text', {opacity:1, drawSVG:0});
@@ -93,13 +94,9 @@ $(function() {
 		rTextTL.to('#rabbit-text-1', 2, {drawSVG:"100%"});
 		rTextTL.to('#rabbit-text-2', .3, {drawSVG:"100%"});
 
-		TweenMax.to('#logo-text-item-0', .4, {width:'145px', delay:2.5});
-		TweenMax.to('#logo-text-item-1', .4, {width:'145px', delay:2.5});
-		TweenMax.to('#logo-text-item-2', .4, {width:'145px', delay:2.5});
+		//Three text items in top left text logo.
+		TweenMax.to('#logo-text-item-0, #logo-text-item-1, #logo-text-item-2', .4, {width:'145px', delay:2.5});
 
-		TweenMax.from('.properties dt', 3, {opacity:0});
-
-		//TweenMax.staggerTo('.properties dt', 1, {opacity:1, delay:1.5}, 1);
 		TweenMax.to('.properties dt, .properties dd.details, .meet-text', 1, {opacity:1, delay:1.5, ease:Quad.easeOut}, 1);
 		TweenMax.to('.main .contact, .method-button', 1, {opacity:1, delay:2, paddingTop:0, ease:Quad.easeOut}, 1);
 
@@ -109,18 +106,16 @@ $(function() {
 		TweenMax.set('dd.img', {opacity:1});
 		//Reset property icon paths to 0%;
 		TweenMax.set('.icon-path', {drawSVG:"0%, 0%"});
+
 		TweenMax.from($('.rabbit-logo-path'), 2, {drawSVG:"0% 0%", delay:.5, ease:Quad.eastOut});
-		TweenMax.from($('.meet-button .meet-logo'), 2, {opacity:0, delay:.5, ease:Quad.eastOut});
+		TweenMax.to($('.meet-logo'), 2, {opacity:1, delay:.5, ease:Quad.eastOut});
 		TweenMax.from($('circle'), 2, {opacity:0, delay:.5, ease:Quad.eastOut});
 
 		setTimeout(function(){
-
 			var stpTL = new TimelineMax();
 			stpTL.repeat(-1);
 			stpTL.staggerTo('.icon-path', 1, {drawSVG:"0% 50%", ease:Quad.easeIn}, 1);
 			stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
-
-
 		}, 1500);
 
 
