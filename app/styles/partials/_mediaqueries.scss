@@ -15,3 +15,9 @@
 		@content;
 	}
 }
+
+@mixin xl {
+	@media (min-width: #{$xl}) {
+		@content;
+	}
+}

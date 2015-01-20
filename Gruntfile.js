@@ -19,7 +19,6 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
-
     compass: {
       dev: {
         options: {
@@ -117,6 +116,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
+            '.sass-cache',
             '<%= config.dist %>/*',
             '!<%= config.dist %>/.git*'
           ]
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: '<%= config.app %>/*.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -277,6 +277,18 @@ module.exports = function (grunt) {
       }
     },
 
+    'ftp-deploy': {
+      dist: {
+        auth: {
+         host:'64.207.177.143',
+         authKey:'ftp'
+        },
+        src:'<%= config.dist %>',
+        dest:'/httpdocs/dev/',
+        exclusions:['.git*', '.DS_Store']
+      }
+    },
+
     // Generates a custom Modernizr build that includes only the tests you
     // reference in your app
     modernizr: {
@@ -341,8 +353,13 @@ module.exports = function (grunt) {
     //Copies all the other shit.
     'copy:dist',
     'modernizr',
-    'usemin'
+    'usemin',
+   // 'rev'
   ]);
+
+  grunt.registerTask('deploy', function() {
+    grunt.task.run(['build', 'ftp-deploy:dist']);
+  });
 
   grunt.registerTask('default', [
     'build'

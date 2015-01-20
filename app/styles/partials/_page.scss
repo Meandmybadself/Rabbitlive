@@ -281,6 +281,9 @@ $btmPer:25%;
 		p.explain-line-1 {
 			font-weight:600;
 			font-size:1.1em;
+			@include xl {
+				font-size:1.35em;
+			}
 			a {
 				color:$lightGray;
 				cursor:pointer;
@@ -294,6 +297,10 @@ $btmPer:25%;
 		p.explain-line-2 {
 			margin-top:20px;
 			font-size:$copySize;
+			font-size:1em;
+			@include xl {
+				font-size:1.25em;
+			}
 		}
 	}
 
@@ -320,6 +327,14 @@ $btmPer:25%;
 				background:$turquoise;
 				color:$darkBlue;
 			}
+
+			font-size:.8em;
+
+			@include lg {
+				font-size:1.25em;
+			}
+
+
 		}
 	}
 
@@ -410,6 +425,12 @@ $btmPer:25%;
 		@include md {
 			font-size:2.4em;
 		}
+		@include lg {
+			font-size:3.15em;
+		}
+		@include xl {
+			font-size:3.3em;
+		}
 	}
 
 	.properties {
@@ -433,6 +454,9 @@ $btmPer:25%;
 					z-index:1;
 					position:absolute;
 					opacity:0;
+					@include xl{
+						font-size:1.2em;
+					}
 				}
 				dd.img {
 					width:100px;
@@ -452,10 +476,18 @@ $btmPer:25%;
 					font-weight:300;
 					color:$lightDarkBlue;
 					font-size:.8em;
-					line-height:1.3em;
+					line-height:1.4em;
 					padding-right:20px;
+					@include md {
+						font-size:.8em;
+					}
 					@include lg {
-						line-height:1.5em;
+						line-height:1.4em;
+						font-size:.9em;
+					}
+					@include xl {
+						font-size:1.1em;
+						line-height:1.3em;
 					}
 				}
 			}
@@ -469,12 +501,18 @@ $btmPer:25%;
 		opacity:0;
 		padding-top:20px;
 		font-family: 'Source Sans Pro', sans-serif;
-		font-size:.8em;
 		color:$darkBlue;
 		height:45px;
+		font-size:.8em;
+
+		@include lg {
+			font-size:1em;
+			line-height:1.2em;
+		}
 
 		@include md {
 			height:$btmPer;
+
 		}
 
 		.line-piece {
@@ -545,6 +583,9 @@ $btmPer:25%;
 			padding:7px 0;
 			text-align:center;
 			font-size:.7em;
+			@include lg {
+				font-size:.9em;
+			}
 			font-family:'Monocle-Bold', sans-serif;
 			color:$lightGray;
 			background-color:$turquoise;
@@ -639,6 +680,12 @@ $btmPer:25%;
 				font-size:$copySize;
 				font-weight:300;
 				line-height:1.4em;
+				@include md {
+					font-size:.8em;
+				}
+				@include xl {
+					font-size:1.1em;
+				}
 			}
 		}
 	}

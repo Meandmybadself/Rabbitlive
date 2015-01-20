@@ -22,3 +22,7 @@ Source files for www.rabbitlive.com
 ## Create Package Instructions
 - Make sure dependencies are resolved using `npm install` and `bower install`
 - Execute `grunt build`
+
+## Deploy to Production
+- Make sure dependencies are resolved using `npm install` and `bower install`
+- Execut `grunt deploy`
