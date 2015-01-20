@@ -118,7 +118,6 @@ $(function() {
 			stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
 		}, 1500);
 
-
 		TweenMax.staggerTo($('h1 p'), 1, {opacity:1, delay:.2}, .9);
 	});
 

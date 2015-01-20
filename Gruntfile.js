@@ -53,8 +53,8 @@ module.exports = function (grunt) {
         options: {
           expand:true,
           src: "dist/",
-          host:"betamaxmas@www.betamaxmas.com",
-          dest:"/home/betamaxmas/betamaxmas.com/"
+          host:"USER@HOST",
+          dest:"DEST_PATH"
         }
       }
     },
@@ -341,10 +341,7 @@ module.exports = function (grunt) {
     //Copies all the other shit.
     'copy:dist',
     'modernizr',
-    //'rev',
-    'usemin',
-    //'htmlmin',
-    //'rsync'
+    'usemin'
   ]);
 
   grunt.registerTask('default', [
