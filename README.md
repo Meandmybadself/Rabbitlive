@@ -3,6 +3,7 @@ Source files for www.rabbitlive.com
 
 ## Build Caveats
 - If SVG strokes need to be animated, they need to be embedded so DrawSVG can access them in the DOM.
+- HTML cannot be compressed, as it affects the accuracy of the SVG.
 
 ## Prerequisite Applications
 - npm
@@ -21,7 +22,3 @@ Source files for www.rabbitlive.com
 ## Create Package Instructions
 - Make sure dependencies are resolved using `npm install` and `bower install`
 - Execute `grunt build`
-
-## Build to Server Instructions
-- Make sure dependencies are resolved using `npm install` and `bower install`
-- Execute `grunt promote`
