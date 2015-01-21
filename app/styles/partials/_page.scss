@@ -66,7 +66,7 @@ $btmPer:25%;
 **/
 
 .heading {
-	height:515px;
+	height:535px;
 	background-color:$darkBlue;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight:300;
@@ -184,7 +184,7 @@ $btmPer:25%;
 	.logo-text {
 		opacity:0;
 		position:relative;
-		height:180px;
+		height:150px;
 		margin-top:30px;
 		@include md {
 			height:$topPer;
@@ -240,8 +240,15 @@ $btmPer:25%;
 
 				position:absolute;
 				z-index:2;
-				bottom:14%;
+				bottom:8%;
 				left:58%;
+
+				@include md {
+					bottom:20%;
+				}
+				@include lg {
+					bottom:25%;
+				}
 
 				li {
 					margin-bottom:2px;
@@ -265,7 +272,7 @@ $btmPer:25%;
 	.explain {
 		opacity:0;
 		margin-top:20px;
-		height:140px;
+		height:180px;
 		@include sm {
 			height:80px;
 		}
@@ -380,7 +387,7 @@ $btmPer:25%;
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 		line-height:1.6em;
-		height:100px;
+		height:90px;
 		margin-top:55px;
 		margin-bottom:40px;
 
@@ -418,7 +425,7 @@ $btmPer:25%;
 		}
 
 
-		font-size:1.3em;
+		font-size:1.1em;
 		@include sm {
 			font-size:2em;
 		}
@@ -435,7 +442,7 @@ $btmPer:25%;
 
 	.properties {
 		//border:1px solid #00FF00;
-		height:550px;
+		height:700px;
 
 		@include sm {
 			height:250px;
@@ -444,7 +451,7 @@ $btmPer:25%;
 			height:$midPer;
 		}
 		li {
-			height:175px;
+			height:220px;
 			margin-bottom:20px;
 			padding:0;
 			dl {

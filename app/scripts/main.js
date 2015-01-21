@@ -56,6 +56,14 @@ function showModal(id) {
 	activeModal = id;
 }
 
+function makeRabbitLogoDance() {
+	//TweenMax.staggerTo('.rabbit-logo-path', 1, {drawSVG:"0%", yoyo:true, repeat:-1, ease:Quad.easeInOut, overwrite:1}, .1);
+	//TweenMax.staggerFromTo('.rabbit-logo-path', 1, {drawSVG:"100%", ease:Quad.easeInOut}, {drawSVG:"0%", ease:Quad.easeInOut}, .1, onRabbitLogoDanceComplete);
+}
+function onRabbitLogoDanceComplete() {
+	//setTimeout(makeRabbitLogoDance, 5000);
+}
+
 /** Called when the Meet the Rabbits button is moused-out. Returns the SVG to its initial state. **/
 function onMeetButtonBlur() {
 	TweenMax.to($(this).find('.rabbit-logo-path'), 1, {drawSVG:"0 100%", repeat:0, yoyo:false, overwrite:1});
@@ -111,6 +119,7 @@ $(function() {
 		TweenMax.to($('.meet-logo'), 2, {opacity:1, delay:.5, ease:Quad.eastOut});
 		TweenMax.from($('circle'), 2, {opacity:0, delay:.5, ease:Quad.eastOut});
 
+		//Wait 1.5 seconds before drawing in the
 		setTimeout(function(){
 			var stpTL = new TimelineMax();
 			stpTL.repeat(-1);
@@ -118,8 +127,12 @@ $(function() {
 			stpTL.to('.icon-path', 2, {drawSVG:"50% 50%", ease:Quad.easeOut});
 		}, 1500);
 
+		//setTimeout(makeRabbitLogoDance, 5000);
+
 		TweenMax.staggerTo($('h1 p'), 1, {opacity:1, delay:.2}, .9);
 	});
+
+
 
 
 	/** Button event handlers **/
