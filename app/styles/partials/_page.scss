@@ -288,7 +288,7 @@ $btmPer:25%;
 			margin-top:0;
 			height:$midPer;
 		}
-		@include md {
+		@include md-short {
 			height:200px;
 		}
 		p.explain-line-1 {
