@@ -82,6 +82,10 @@ $btmPer:25%;
 		height:100%;
 	}
 
+	@include md-short {
+		height:1000px;
+	}
+
 	.page-modal {
 		visibility:hidden;
 		opacity:0;
@@ -191,6 +195,9 @@ $btmPer:25%;
 			margin-top:0;
 			padding-top:20%;
 		}
+		@include md-short {
+			height:300px;
+		}
 
 
 
@@ -276,15 +283,14 @@ $btmPer:25%;
 		@include sm {
 			height:80px;
 		}
-		// @include md {
-		// 	margin-top:50px;
-		// 	height:250px;
-		// }
+
 		@include md {
 			margin-top:0;
 			height:$midPer;
 		}
-		position:relative;
+		@include md {
+			height:200px;
+		}
 		p.explain-line-1 {
 			font-weight:600;
 			font-size:1.1em;
@@ -368,6 +374,12 @@ $btmPer:25%;
 		height:100%;
 		overflow:hidden;
 	}
+	@include md-short {
+		height:1000px;
+		overflow:auto;
+	}
+
+
 
 	.main-content {
 		height:100%;
@@ -383,7 +395,6 @@ $btmPer:25%;
 
 	h1 {
 
-		//border:1px solid #FF0000;
 		font-family:'Monocle-Bold', sans-serif;
 		color:$lightDarkBlue;
 		line-height:1.6em;
@@ -401,7 +412,9 @@ $btmPer:25%;
 		@include md {
 			height:$topPer;
 		}
-
+		@include md-short {
+			height:330px;
+		}
 
 		@include sm {
 			margin-top:30px;
@@ -441,7 +454,6 @@ $btmPer:25%;
 	}
 
 	.properties {
-		//border:1px solid #00FF00;
 		height:700px;
 
 		@include sm {
@@ -450,12 +462,18 @@ $btmPer:25%;
 		@include md {
 			height:$midPer;
 		}
+
+		@include md-short {
+			height:330px;
+		}
+
 		li {
 			height:220px;
 			margin-bottom:20px;
 			padding:0;
 			dl {
 				dt {
+					cursor:pointer;
 					font-family:'Monocle-Bold', sans-serif;
 					color:$darkBlue;
 					z-index:1;
@@ -490,10 +508,10 @@ $btmPer:25%;
 					}
 					@include lg {
 						line-height:1.4em;
-						font-size:.9em;
+						font-size:.8em;
 					}
 					@include xl {
-						font-size:1.1em;
+						font-size:.9em;
 						line-height:1.3em;
 					}
 				}
@@ -585,7 +603,6 @@ $btmPer:25%;
 		}
 		.meet-text {
 			opacity:0;
-			//border:1px solid #FF00FF;
 			height:10%;
 			padding:7px 0;
 			text-align:center;
@@ -620,6 +637,9 @@ $btmPer:25%;
 
 		.close-btn {
 			right:15px;
+			@include md-short {
+				display:none;
+			}
 			.front {
 				background-color:$darkBlue;
 			}
@@ -657,6 +677,9 @@ $btmPer:25%;
 			text-transform:uppercase;
 			font-family:'Monocle-Bold', sans-serif;
 			margin-bottom:10px;
+			span {
+				font-size:1em;
+			}
 		}
 		.dna {
 			@include sm {

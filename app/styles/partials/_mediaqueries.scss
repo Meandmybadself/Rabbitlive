@@ -9,6 +9,11 @@
 		@content;
 	}
 }
+@mixin md-short {
+	@media (min-width: #{$md}) and (max-height: #{$mdh}) {
+		@content;
+	}
+}
 
 @mixin lg {
 	@media (min-width: #{$lg}) {
@@ -21,3 +26,9 @@
 		@content;
 	}
 }
+
+// @mixin sm-h {
+// 	@media (min-height #{}) {
+
+// 	}
+// }
