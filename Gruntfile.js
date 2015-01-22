@@ -284,7 +284,7 @@ module.exports = function (grunt) {
          authKey:'ftp'
         },
         src:'<%= config.dist %>',
-        dest:'/httpdocs/dev/',
+        dest:'/httpdocs/',
         exclusions:['.git*', '.DS_Store']
       }
     },

@@ -388,7 +388,7 @@ $btmPer:25%;
 
 		&.showingRabbits {
 			@include md {
-				margin-top:-600px;
+				margin-top:-650px;
 			}
 		}
 	}
@@ -636,6 +636,7 @@ $btmPer:25%;
 		min-height:600px;
 
 		.close-btn {
+			top:1px;
 			right:15px;
 			@include md-short {
 				display:none;
@@ -711,11 +712,20 @@ $btmPer:25%;
 				font-weight:300;
 				line-height:1.4em;
 				@include md {
-					font-size:.8em;
+					font-size:.7em;
 				}
 				@include xl {
 					font-size:1.1em;
 				}
+			}
+		}
+		.footer {
+			margin-top:50px;
+			font-size:.6em;
+			font-family:'Monocle-Light', sans-serif;
+			min-height:30px;
+			hr {
+				margin-top:50px;
 			}
 		}
 	}
