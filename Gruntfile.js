@@ -19,6 +19,40 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
+
+    // Add vendor prefixed styles
+    autoprefixer: {
+      options: {
+        browsers: ['> 1%']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd:'<%= config.dist %>/styles/',
+          src: '*.css',
+          dest:'<%= config.dist %>/styles/'
+        }]
+      }
+    },
+
+    // Empties folders to start fresh
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '.sass-cache',
+            '<%= config.dist %>/*',
+            '!<%= config.dist %>/.git*'
+          ]
+        }]
+      },
+      server: '.tmp'
+    },
+
+
+
     compass: {
       dev: {
         options: {
@@ -38,46 +72,6 @@ module.exports = function (grunt) {
           sassDir:'<%= config.app %>/styles',
           cssDir:'<%= config.dist %>/styles'
         }
-      }
-    },
-
-
-    //RSYNC doesn't respect grunt variables.
-    rsync: {
-      options: {
-        recursive:true,
-        exclude: [".git*", "*.scss", "node_modules", "*.map"]
-      },
-      dist: {
-        options: {
-          expand:true,
-          src: "dist/",
-          host:"USER@HOST",
-          dest:"DEST_PATH"
-        }
-      }
-    },
-
-    // Watches files for changes and runs tasks based on the changed files
-    watch: {
-      gruntfile: {
-        files: ['Gruntfile.js']
-      },
-      compass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:dev']
-      },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        },
-        files: [
-          '<%= config.app %>/scripts/{,*/}*.js',
-          '<%= config.app %>/{,*/}*.html',
-         // '<%= config.app %>/styles/{,*/}*.css',
-          '<%= config.app %>/images/{,*/}*',
-          '.tmp/styles/{,*/}*.css'
-        ]
       }
     },
 
@@ -109,146 +103,8 @@ module.exports = function (grunt) {
       }
     },
 
-    // Empties folders to start fresh
-    clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '.sass-cache',
-            '<%= config.dist %>/*',
-            '!<%= config.dist %>/.git*'
-          ]
-        }]
-      },
-      server: '.tmp'
-    },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['> 1%']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd:'<%= config.dist%>/styles/',
-          src: '*.css',
-          dest:'<%= config.dist%>/styles/'
-        }]
-      }
-    },
 
-    // Renames files for browser caching purposes
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
-            '<%= config.dist %>/*.{ico,png}'
-          ]
-        }
-      }
-    },
-
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      options: {
-        dest: '<%= config.dist %>'
-      },
-      html: '<%= config.app %>/*.html'
-    },
-
-    // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {
-      options: {
-        assetsDirs: [
-          '<%= config.dist %>',
-          '<%= config.dist %>/images',
-          '<%= config.dist %>/styles'
-        ]
-      },
-      html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
-    },
-
-    // The following *-min tasks produce minified files in the dist folder
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/images'
-        }]
-      }
-    },
-    cssmin: {
-      dist: {
-        options: {
-          keepSpecialComments:0,
-          report:'min'
-        },
-        files: [
-          {
-            expand: true,
-            cwd:'<%= config.dist%>/styles/',
-            src: '*.css',
-            dest:'<%= config.dist%>/styles/'
-          }
-        ]
-      }
-
-    },
-    htmlmin: {
-      dist: {
-        options: {
-          collapseBooleanAttributes: true,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          removeAttributeQuotes: true,
-          removeCommentsFromCDATA: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true
-        },
-        files:[{
-          expand:true,
-          cwd:'<%= config.dist %>/',
-          src:'**/*.html',
-          dest:'dist/'
-        }]
-        // files: {
-        //   '<%= config.dist %>/index.html'
-        // }
-
-          //{
-          //  expand: true,
-          // // cwd: '<%= config.dist %>',
-          //  src:  '<%= config.dist %>/*.html',
-          //  dest: '<%= config.dist %>'
-          //}
-
-      }
-    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -277,6 +133,27 @@ module.exports = function (grunt) {
       }
     },
 
+
+
+
+    cssmin: {
+      dist: {
+        options: {
+          keepSpecialComments:0,
+          report:'min'
+        },
+        files: [
+          {
+            expand: true,
+            cwd:'<%= config.dist%>/styles/',
+            src: '*.css',
+            dest:'<%= config.dist%>/styles/'
+          }
+        ]
+      }
+
+    },
+
     'ftp-deploy': {
       dist: {
         auth: {
@@ -289,8 +166,42 @@ module.exports = function (grunt) {
       }
     },
 
-    // Generates a custom Modernizr build that includes only the tests you
-    // reference in your app
+    htmlmin: {
+      dist: {
+        options: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          removeAttributeQuotes: true,
+          removeCommentsFromCDATA: true,
+          removeEmptyAttributes: true,
+          removeOptionalTags: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true
+        },
+        files:[{
+          expand:true,
+          cwd:'<%= config.dist %>/',
+          src:'**/*.html',
+          dest:'dist/'
+        }]
+      }
+    },
+
+
+    // The following *-min tasks produce minified files in the dist folder
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images',
+          src: '{,*/}*.{gif,jpeg,jpg,png}',
+          dest: '<%= config.dist %>/images'
+        }]
+      }
+    },
+
+    // Generates a custom Modernizr build that includes only the tests you reference in your app
     modernizr: {
       dist: {
         devFile: 'bower_components/modernizr/modernizr.js',
@@ -304,7 +215,111 @@ module.exports = function (grunt) {
         },
         uglify: true
       }
+    },
+
+
+
+    // Renames files for browser caching purposes
+    rev: {
+      dist: {
+        files: {
+          src: [
+            '<%= config.dist %>/scripts/{,*/}*.js',
+            '<%= config.dist %>/styles/{,*/}*.css',
+            '<%= config.dist %>/images/{,*/}*.*',
+            '<%= config.dist %>/styles/fonts/{,*/}*.*',
+            '<%= config.dist %>/*.{ico,png}'
+          ]
+        }
+      }
+    },
+
+
+    //RSYNC doesn't respect grunt variables.
+    rsync: {
+      options: {
+        recursive:true,
+        exclude: [".git*", "*.scss", "node_modules", "*.map"]
+      },
+      dist: {
+        options: {
+          expand:true,
+          src: "dist/",
+          host:"USER@HOST",
+          dest:"DEST_PATH"
+        }
+      }
+    },
+
+
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images',
+          src: '{,*/}*.svg',
+          dest: '<%= config.dist %>/images'
+        }]
+      }
+    },
+
+
+    uncss: {
+      dist: {
+        files: {
+          '<%= config.dist %>/styles/styles.css': ['<%= config.app %>/index.html', '<%= config.app %>/under-construction.html'],
+          '<%= config.dist %>/styles/vendor.css': ['<%= config.app %>/index.html', '<%= config.app %>/under-construction.html'],
+        }
+      }
+    },
+
+    // Reads HTML for usemin blocks to enable smart builds that automatically
+    // concat, minify and revision files. Creates configurations in memory so
+    // additional tasks can operate on them
+    useminPrepare: {
+      options: {
+        dest: '<%= config.dist %>'
+      },
+      html: '<%= config.app %>/*.html'
+    },
+
+    // Performs rewrites based on rev and the useminPrepare configuration
+    usemin: {
+      options: {
+        assetsDirs: [
+          '<%= config.dist %>',
+          '<%= config.dist %>/images',
+          '<%= config.dist %>/styles'
+        ]
+      },
+      html: ['<%= config.dist %>/{,*/}*.html'],
+      css: ['<%= config.dist %>/styles/{,*/}*.css']
+    },
+
+    // Watches files for changes and runs tasks based on the changed files
+    watch: {
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
+      compass: {
+        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:dev']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          '<%= config.app %>/scripts/{,*/}*.js',
+          '<%= config.app %>/{,*/}*.html',
+         // '<%= config.app %>/styles/{,*/}*.css',
+          '<%= config.app %>/images/{,*/}*',
+          '.tmp/styles/{,*/}*.css'
+        ]
+      }
     }
+
+
   });
 
 
@@ -352,8 +367,8 @@ module.exports = function (grunt) {
     'uglify',
     //Copies all the other shit.
     'copy:dist',
-    'modernizr',
-    'usemin',
+  //  'modernizr', //No need for this app.
+    'usemin'
    // 'rev'
   ]);
 

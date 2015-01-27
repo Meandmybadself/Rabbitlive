@@ -40,5 +40,6 @@
     "grunt-usemin": "^3.0.0",
     "load-grunt-tasks": "^2.0.0",
     "time-grunt": "^1.0.0"
-  }
+  },
+  "devDependencies": {}
 }
